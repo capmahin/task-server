@@ -28,8 +28,9 @@ async function run() {
       res.send(services);
     });
 
-    app.get("/booking", async (req, res) => {
-      const booking = req.body;
+    app.get("/bookings", async (req, res) => {
+      const result = await bookingCollection.find({}).toArray();
+      res.send(result);
     });
 
     app.post("/booking", async (req, res) => {
