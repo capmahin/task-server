@@ -37,16 +37,15 @@ async function run() {
       const result = await bookingCollection.insertOne(booking);
       res.send(result);
     });
+    app.get("/", (req, res) => {
+      res.send("Hello World!");
+    });
+
+    app.listen(port, () => {
+      console.log(`Example app listening on port ${port}`);
+    });
   } finally {
   }
 }
 
 run().catch(console.dir);
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
